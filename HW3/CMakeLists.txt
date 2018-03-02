@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 2.8)
+set(-std=c++14 -Wall)
+execute_process( COMMAND python3 A/preparing.py )
+set(SOURCE_LIST C/main.cpp B/notlib.cpp)
+include_directories("${PROJECT_SOURCE_DIR}")
+add_subdirectory(B)
+add_executable(proj ${SOURCE_LIST})
